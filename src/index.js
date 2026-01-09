@@ -2,10 +2,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-const { PORT } = process.env.PORT || 3005;
 const apiRoutes = require("./routes/index");
 const { connect } = require("./config/database-config");
 const logger = require("./config/logger");
+
+const PORT = process.env.PORT || 3005;
 
 const app = express();
 app.use(
