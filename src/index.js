@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-const { PORT } = require("./config/server-config");
+const { PORT } = process.env.PORT || 3005;
 const apiRoutes = require("./routes/index");
 const { connect } = require("./config/database-config");
 const logger = require("./config/logger");
@@ -10,7 +10,7 @@ const logger = require("./config/logger");
 const app = express();
 app.use(
   cors({
-    origin: "http://localhost:3000", // frontend URL
+    origin: process.env.FRONTEND_URL, // frontend URL
     credentials: true,
   })
 );
